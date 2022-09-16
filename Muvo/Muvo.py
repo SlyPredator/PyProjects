@@ -1,3 +1,4 @@
+# Program to create a basic bulk mover/copier 
 import os
 import shutil
 

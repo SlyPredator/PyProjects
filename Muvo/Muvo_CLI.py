@@ -1,3 +1,4 @@
+# Program to create a basic bulk mover/copier using CLI
 import os
 import shutil
 import argparse
@@ -63,7 +64,7 @@ def main():
     )
 
 
-# Main Function
+# Move/Copy Function
 def mvcp(a, b, c, d, e):
     try:
         x = os.path.isdir(f"{c}")
@@ -102,7 +103,7 @@ def mvcp(a, b, c, d, e):
 
     os.system("pause")
 
-
+# Main Function
 if __name__ == "__main__":
     print(
         f"Welcome to Muvo, a small program for moving and copying files based on extensions. You can give multiple extensions to search for among a single directory and it'll traverse all sub-directories and copy/move the files with the specified extension. Enjoy! \nCredits: Navneeth M\n"
