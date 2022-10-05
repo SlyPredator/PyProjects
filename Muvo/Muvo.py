@@ -1,26 +1,33 @@
-# Program to create a basic bulk mover/copier 
+# Program to create a basic bulk mover/copier
 import os
 import shutil
 
 print(
-    f"Welcome to Muvo, a small program for moving and copying files based on extensions. You can give multiple extensions to search for among a single directory and it'll traverse all sub-directories and copy/move the files with the specified extension. Enjoy! \nCredits: Navneeth M\n"
+    "Welcome to Muvo, a small program for moving and copying files based on" +
+    " extensions. You can give multiple extensions to search for among a " +
+    "single directory and it'll traverse all sub-directories and copy/move " +
+    "the files with the specified extension. Enjoy! \nCredits: Navneeth M\n"
 )
+
 
 # Main function
 def mvcp():
     ext = input(
-        "Enter a single line of the extension(s) you want to search for separated by spaces: "
+        "Enter a single line of the extension(s) you want to search for " +
+        "separated by spaces: "
     ).split(" ")
     path = input(
-        'Enter a parent directory path without " " (The directory HAS to exist): '
+        'Enter a parent directory path without " " ' +
+        '(The directory HAS to exist): '
     )
     dest = input('Enter a final directory path without " " : ')
-    cmconsent = int(input(f"Do you want to\n1. Copy Files\n2. Move Files "))
+    cmconsent = int(input("Do you want to\n1. Copy Files\n2. Move Files "))
     true = input(
-        f"Do you want to the see the names of the files moved: \n1. yes \n2. no "
+        "Do you want to the see the names of the files moved: " +
+        "\n1. yes \n2. no "
     )
     x = os.path.isdir(f"{dest}")
-    if x == False:
+    if x is False:
         os.mkdirs(f"{dest}")
     else:
         pass
@@ -29,23 +36,21 @@ def mvcp():
             name = filename.split(".")
             for extName in ext:
                 if extName in name:
-                    if (
-                        cmconsent == 2
-                        and os.path.isfile(f"{os.path.join(dest, filename)}") == False
-                    ):
+                    if cmconsent == 2 and os.path.isfile(
+                        f"{os.path.join(dest, filename)}"
+                    ) is False:
                         shutil.move(os.path.join(root, filename), f"{dest}")
                         if true == "yes" or true == "1":
                             print(os.path.join(dest, filename))
-                    elif (
-                        cmconsent == 1
-                        and os.path.isfile(f"{os.path.join(dest, filename)}") == False
-                    ):
+                    elif cmconsent == 1 and os.path.isfile(
+                        f"{os.path.join(dest, filename)}"
+                    ) is False:
                         shutil.copy(os.path.join(root, filename), f"{dest}")
                         if true == "yes" or true == "1":
                             print(os.path.join(dest, filename))
                     else:
                         pass
-    print(f"\n \nDone!")
+    print("\n \nDone!")
 
 
 # Error Blocks

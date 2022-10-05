@@ -3,12 +3,14 @@ import os
 import shutil
 import argparse
 
+
 # Args Function
 def main():
     parser = argparse.ArgumentParser(
         prog="Muvo-CLI",
-        description="Bulk move/copy files with certain extensions from all subdirectories of a parent directory",
-        epilog=f"Hope you found this helpful :) \n",
+        description="Bulk move/copy files with certain extensions from all " +
+        "subdirectories of a parent directory",
+        epilog="Hope you found this helpful :) \n",
     )
     parser.add_argument(
         "--extensions",
@@ -54,7 +56,8 @@ def main():
     )
 
     args = parser.parse_args()
-    # print(args.extensions[0], args.parentdir[0], args.finaldir[0], args.copymove[0], args.log[0])
+    # print(args.extensions[0], args.parentdir[0], args.finaldir[0],
+    # args.copymove[0], args.log[0])
     mvcp(
         args.extensions,
         args.parentdir[0],
@@ -68,7 +71,7 @@ def main():
 def mvcp(a, b, c, d, e):
     try:
         x = os.path.isdir(f"{c}")
-        if x == False:
+        if x is False:
             os.mkdir(f"{c}")
         else:
             pass
@@ -77,23 +80,21 @@ def mvcp(a, b, c, d, e):
                 name = filename.split(".")
                 for extName in a:
                     if extName in name:
-                        if (
-                            d == "move"
-                            and os.path.isfile(f"{os.path.join(c, filename)}") == False
+                        if d == "move" and not os.path.isfile(
+                            f"{os.path.join(c, filename)}"
                         ):
                             shutil.move(os.path.join(root, filename), f"{c}")
                             if e == "yes" or e == "1":
                                 print(os.path.join(c, filename))
-                        elif (
-                            d == "copy"
-                            and os.path.isfile(f"{os.path.join(c, filename)}") == False
+                        elif d == "copy" and not os.path.isfile(
+                            f"{os.path.join(c, filename)}"
                         ):
                             shutil.copy(os.path.join(root, filename), f"{c}")
                             if e == "yes" or e == "1":
                                 print(os.path.join(c, filename))
                         else:
                             pass
-        print(f"\n \nDone!")
+        print("\n \nDone!")
     except shutil.Error:
         pass
     except FileNotFoundError:
@@ -103,9 +104,14 @@ def mvcp(a, b, c, d, e):
 
     os.system("pause")
 
+
 # Main Function
 if __name__ == "__main__":
     print(
-        f"Welcome to Muvo, a small program for moving and copying files based on extensions. You can give multiple extensions to search for among a single directory and it'll traverse all sub-directories and copy/move the files with the specified extension. Enjoy! \nCredits: Navneeth M\n"
+        "Welcome to Muvo, a small program for moving and copying" +
+        " files based on extensions. You can give multiple extensions " +
+        "to search for among a single directory and it'll traverse all " +
+        "sub-directories and copy/move the files with the specified " +
+        "extension. Enjoy! \nCredits: Navneeth M\n"
     )
     main()
