@@ -1,10 +1,10 @@
 # Program to print an image in Excel spreadsheet - currently limited
 from openpyxl import Workbook
-from openpyxl.utils import get_column_letter
 from openpyxl.styles import PatternFill
+from openpyxl.utils import get_column_letter
 from PIL import Image
 
-# Reading image 
+# Reading image
 im = Image.open("image.png")
 rgb_im = im.convert("RGB")
 rgbArr = []
@@ -43,6 +43,7 @@ def generateSheet():
             ws[cell].fill = PatternFill(fgColor=rgbArr[j][i], fill_type="solid")
 
     wb.save(filename="image.xlsx")
+
 
 # Function calls
 rgbArray()

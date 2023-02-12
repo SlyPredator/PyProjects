@@ -1,15 +1,15 @@
 # Program to create a basic bulk mover/copier using CLI
+import argparse
 import os
 import shutil
-import argparse
 
 
 # Args Function
 def main():
     parser = argparse.ArgumentParser(
         prog="Muvo-CLI",
-        description="Bulk move/copy files with certain extensions from all " +
-        "subdirectories of a parent directory",
+        description="Bulk move/copy files with certain extensions from all "
+        + "subdirectories of a parent directory",
         epilog="Hope you found this helpful :) \n",
     )
     parser.add_argument(
@@ -108,10 +108,10 @@ def mvcp(a, b, c, d, e):
 # Main Function
 if __name__ == "__main__":
     print(
-        "Welcome to Muvo, a small program for moving and copying" +
-        " files based on extensions. You can give multiple extensions " +
-        "to search for among a single directory and it'll traverse all " +
-        "sub-directories and copy/move the files with the specified " +
-        "extension. Enjoy! \nCredits: Navneeth M\n"
+        "Welcome to Muvo, a small program for moving and copying"
+        + " files based on extensions. You can give multiple extensions "
+        + "to search for among a single directory and it'll traverse all "
+        + "sub-directories and copy/move the files with the specified "
+        + "extension. Enjoy! \nCredits: Navneeth M\n"
     )
     main()

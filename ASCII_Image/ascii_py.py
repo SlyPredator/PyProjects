@@ -1,10 +1,11 @@
 # Python code to convert an image to ASCII image.
-import sys, random, argparse
-import numpy as np
+import argparse
 import math
+import random
+import sys
 
+import numpy as np
 from PIL import Image
-
 
 # 70 levels of gray
 gscale1 = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,\"^`'. "

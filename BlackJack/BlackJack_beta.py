@@ -43,9 +43,7 @@ try:
             player_hand2.append(str(x) + " of " + random.choice(suits))
         for x in dealer_hand[0]:
             dealer_hand2.append(str(x) + " of " + random.choice(suits))
-        print(
-            "---------------------------------------------------------------------------------------"
-        )
+        print("---------------------------------------------------------")
         print("Dealing out cards.....\n")
         sleep(1)
         print(
@@ -82,7 +80,7 @@ try:
         if player_hand_value <= 21:
             hit_stay_choice = ""
             while hit_stay_choice != "hit" or "stand":
-                hit_stay_choice = input(f"Do you want to hit or stand? ")
+                hit_stay_choice = input("Do you want to hit or stand? ")
                 sleep(1.2)
                 if hit_stay_choice == "hit":
                     player_hand[0].append(random.choice(deck))
@@ -145,7 +143,7 @@ try:
             if dealer_hand_value <= 21:
                 print(
                     f"The dealer has a greater hand value than yours at {dealer_hand_value} opposed to your {player_hand_value}!",
-                    f"You lose the game! \n",
+                    "You lose the game! \n",
                     sep="\n",
                 )
                 sleep(0.5)
@@ -156,7 +154,7 @@ try:
             if dealer_hand_value > 21 and player_hand_value <= 21:
                 win_game()
         if dealer_hand_value == 21 == player_hand_value:
-            print(f"You both have tied at 21!!")
+            print("You both have tied at 21!!")
             sleep(0.5)
             ask_game()
         if int(dealer_hand_value) == int(player_hand_value):
@@ -174,12 +172,12 @@ try:
         print("You win! Congrats!! \n")
         if player_hand_value == 21:
             print(
-                f"You have a perfect score of 21! You scored a BlackJack! Congrats!! \n"
+                "You have a perfect score of 21! You scored a BlackJack! Congrats!! \n"
             )
         ask_game()
 
     def ask_game():
-        new_game = input(f"Do you want to play a new game? 'Yes' or 'No' ")
+        new_game = input("Do you want to play a new game? 'Yes' or 'No' ")
         if new_game == "Yes" or new_game == "yes" or new_game == "y" or new_game == "Y":
             print(
                 "---------------------------------------------------------------------------------------"
@@ -192,7 +190,7 @@ try:
 
     # The Game
     print(
-        f"""                                        
+        """                                        
                                             B.L.A.C.K.J.A.C.K 
     
                                                 THE RULES
